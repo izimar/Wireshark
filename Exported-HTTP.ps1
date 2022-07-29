@@ -23,13 +23,13 @@ $pcap_dir = "Exported_HTTP"
 #Grabbing HTTP objects and saving to "Exported_HTTP" folder
 C:\"Program Files"\Wireshark\tshark.exe -Q -r $pcap_file.FileName --export-objects "$protocol,$pcap_dir"
 
-#Opening Exported_HTTP folder to Watch the script do it's magic!
+#Opening Exported_HTTP folder to watch the script do it's magic!
 ii "Exported_HTTP"
 
-#Grabbing path of saved HTTP files
+#Grabbing path of saved HTTP objects
 $Exported = Get-ChildItem -Path "Exported_HTTP"
 
-#for-loop iterating through each HTTP object in "Exported_HTTP" folder
+#For-loop iterating through each HTTP object in "Exported_HTTP" folder
 foreach ($E in $Exported){
     #Signature/VirusTotal check on each file in path  
     $VT_check = C:\ProgramData\chocolatey\bin\sigcheck.exe -h -v $E.fullname 
@@ -41,7 +41,7 @@ foreach ($E in $Exported){
     # "-notlike $null" takes advantage of this by seeing if $check has any data in it. If it does, the sigcheck is saved as a text file for the user to analyze.
     if($check -notlike $null){$VT_check > ".\Text_of_Files\$E.txt"}
 
-    #If $check is empty, then the file is deleted as it does not have a VirusTotal signature higher than 0
+    #If $check is empty, then the file is deleted because it does not have a VirusTotal signature higher than 0
     else{del $E.fullname}
             }
 
