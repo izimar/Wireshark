@@ -1,4 +1,4 @@
-﻿#Loading in the System.Windows.Forms assembly
+#Loading in the System.Windows.Forms assembly
 Add-Type -AssemblyName System.Windows.Forms
 
 #Instantiating an OpenFileDialog object using New-Object, and using showDialog method for user interaction
@@ -34,15 +34,15 @@ foreach ($E in $Exported){
     $VT_check = C:\ProgramData\chocolatey\bin\sigcheck.exe -h -v $E.fullname 
 
     #Checks whether the column containing "VT Detection rate" has a value higher than 0, meaning it has been flagged by AV vendors, and may be malicious.
-    $malware = $VT_check | select-string -pattern "VT Detection" | Select-string -NotMatch -Pattern "0/"
+    $check = $VT_check | select-string -pattern "VT Detection" | Select-string -NotMatch -Pattern "0/"
     
-    #The output will either be an emtpy string, meaning the select-string pipping in $malware has nothing to grab, or $malware will be a full sigcheck of a malicious file. 
-    # "-notlike $null" takes advantage of this by checking if $malware has any text. If it does, the file is saved as a text file for the user to analyze.
-    if($malware -notlike $null){$VT_check > ".\Text_of_Files\$E.txt"}
+    #The output of $check will either be an emtpy string, meaning the select-string pipping has nothing to grab, or $check will be a full sigcheck of a suspicious file. 
+    # "-notlike $null" takes advantage of this by seeing if $check has any data in it. If it does, the sigcheck is saved as a text file for the user to analyze.
+    if($check -notlike $null){$VT_check > ".\Text_of_Files\$E.txt"}
 
-    #If $malware is empty, then it is deleted as it does not have a VirusTotal signature higher than 0
+    #If $check is empty, then the file is deleted as it does not have a VirusTotal signature higher than 0
     else{del $E.fullname}
             }
 
-#Renaming the folder to better suit its new use case
+#Renaming "Exported_HTTP" folder to better suit its new use case
 Rename-Item -path Exported_HTTP -NewName Suspicious_Files
