@@ -29,6 +29,7 @@ ii "Exported_HTTP"
 #Grabbing path of saved HTTP files
 $Exported = Get-ChildItem -Path "Exported_HTTP"
 
+#for-loop iterating through each HTTP object in "Exported_HTTP" folder
 foreach ($E in $Exported){
     #Signature/VirusTotal check on each file in path  
     $VT_check = C:\ProgramData\chocolatey\bin\sigcheck.exe -h -v $E.fullname 
