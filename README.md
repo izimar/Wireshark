@@ -5,7 +5,7 @@ Scripts used to automate malware analysis in Wireshark!
 Exported-HTTP.ps1
 *****************
 This is a script that is used to run a VirusTotal/Sigcheck on all exported HTTP files found in a pcap.
-This script is not guaranteed to find all malicious files in a pcap. It is only capable of capturing files that have a detection rate higher than 0 on VirusTotal.
+This script is not guaranteed to find all malicious files in a pcap, it is only capable of capturing files that have a detection rate higher than 0 on VirusTotal.
 
 Insturctions:
 For this script to work, you must download Tshark and ensure that it is located in its default file path - C:\Program Files\Wireshark\ 
