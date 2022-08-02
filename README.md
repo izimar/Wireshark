@@ -25,5 +25,5 @@ There is also a good chance that this script will not function properly when giv
 
 Instructions:
 You will need to download the list of pcap IPs by opening wireshark and going to Statistics > IPv4 Statistics > All Addresses. Save this file in the same location as the script and with the name 'Pcap-Ips.csv'.
-Once you have found a malicious file using VirusTotal, click the "Relations" tab and copy all IPs under the "Contacted URLs" section. Paste them in an editor, then save the file as 'VT-Contacted-IPs.csv'
+Once you have found a malicious file using VirusTotal, click the "Relations" tab and copy all IPs under the "Contacted URLs" section. Paste them in an editor, then save the file as 'VT-Contacted-IPs.csv' in the same directory.
 Once you have done everything, open your terminal in the directory and run the script!
