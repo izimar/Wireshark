@@ -11,7 +11,7 @@ $dir = Read-Host -Prompt "Please create a folder to store HTTP objects in"
 #Making desired directory and child folders required for script to function
 mkdir $dir
 cd $dir
-mkdir Exported_HTTP, Text_of_Files
+mkdir Exported_HTTP, Sigcheck_of_files
 
 #Grabbing file path of pcap for further use in tshark
 $pcap_file = $FileBrowser | select "Filename"
@@ -39,7 +39,7 @@ foreach ($E in $Exported){
     
     #The output of $check will either be an emtpy string, meaning the select-string pipping has nothing to grab, or $check will be a full sigcheck of a suspicious file. 
     # "-notlike $null" takes advantage of this by seeing if $check has any data in it. If it does, the sigcheck is saved as a text file for the user to analyze.
-    if($check -notlike $null){$VT_check > ".\Text_of_Files\$E.txt"}
+    if($check -notlike $null){$VT_check > ".\Sigcheck_of_files\$E.txt"}
 
     #If $check is empty, then the file is deleted because it does not have a VirusTotal signature higher than 0
     else{del $E.fullname}
