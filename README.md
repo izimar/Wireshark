@@ -19,10 +19,10 @@ Once this script is ran, a folder named "suspicious-files" is made that may cont
 
 Ip-Matcher.py
 *************
-This script can be used when you have a list of Pcap IPs and a list of known malicious IPs recorded on VirusTotal.
-If the format of the IPs copied off of VirusTotal is not [protocol]://[IP]:[port] , then this script will not work. This script was custom made to work on a specific use case, and I will eventually work on making it unversal to all IP formats.
+This script can be used when you have a list of Pcap IPs and a list of known malicious IPs recorded on VirusTotal that you wish to compare each other to.
 
 Instructions:
+This is a python script and requires the python programming language to be downloaded in order to work.
 You will need to download the list of pcap IPs by opening wireshark and going to Statistics > IPv4 Statistics > All Addresses. Save this file in the same location as the script and with the name 'Pcap-Ips.csv'.
-Once you have found a malicious file using VirusTotal, click the "Relations" tab and copy all IPs under the "Contacted URLs" section by clicking "Export Identifiers". Paste them in an editor, then save the file as 'VT-Contacted-IPs.csv' in the same directory.
+Once you have found a malicious file using VirusTotal, click the "Relations" tab and copy all IPs under the "Contacted URLs" or "Contacted IP Addresses" section by clicking "Export Identifiers". Paste them in an editor, then save the file as 'VT-Contacted-IPs.csv' in the same directory.
 Once you have done everything, open your terminal in the directory and run the script!
