@@ -9,7 +9,7 @@ with open('Pcap-Ips.csv') as csvfile:
     for row in Ip_Find:
         Pcap_Ips.append(row[2])
 
-with open('VT-associated-IPs.csv') as csvfile:
+with open('VT-Contacted-IPs.csv') as csvfile:
     Ip_Find = csv.reader(csvfile)
     for row in Ip_Find:
         for r in row:
