@@ -9,7 +9,6 @@ with open('Pcap-Ips.csv') as csvfile:
     for row in Ip_Find:
         Pcap_Ips.append(row[2])
 
-
 with open('VT-test.csv') as csvfile:
     Ip_Find = csv.reader(csvfile)
     for row in Ip_Find:
@@ -22,14 +21,12 @@ with open('VT-test.csv') as csvfile:
                     num+=1
                     if char in ["0","1","2","3","4","5","6","7","8","9","."]:
                         IP += char
-                        print(len(IP))
                     if char in [":","/"] and len(IP) >= 7:
                         num = row_Length
                         break
                 
             Mal_Ips.append(IP)
             
-
 def IP_Check(Pcap_Ips,Mal_Ips,Ip_Matches):
     for I in Pcap_Ips:
         if I in Mal_Ips:
@@ -44,4 +41,3 @@ def IP_Check(Pcap_Ips,Mal_Ips,Ip_Matches):
         print("There were no matching IPs")
         
 IP_Check(Pcap_Ips,Mal_Ips,Ip_Matches)
-print(Mal_Ips)
