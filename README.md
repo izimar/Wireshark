@@ -26,6 +26,6 @@ This script can be used when you have a list of Pcap IPs and a list of known mal
 
 ##### Instructions:
 - You will need to download the list of IPs in your pcap by opening wireshark and going to Statistics > IPv4 Statistics > All Addresses. 
-- Save this file in the same directory of the script as a .csv file called **'Pcap-Ips.csv'**.
+  - Save as a .csv file called **'Pcap-Ips.csv'**, in the same directory as the script.
 - Once you have found a malicious file using VirusTotal, click the "Relations" tab and copy all IPs under the "Contacted URLs" or "Contacted IP Addresses" section by clicking "Export Identifiers". Paste them in an editor, then save as a .csv file called **'VT-Contacted-Ips.csv'** in the same directory.
   - If there are many contacted IPs in VirusTotal, make sure you are clicking on the three dots at the bottom to show all IPs before copying them!
