@@ -14,18 +14,3 @@ Once the script is ran, Your file explorer will open. This is where you will fin
 
 ***WARNING***:
 Once this script is ran, the folder named "suspicious-files" may contain live viruses! You can use the "Sigcheck-of-files" folder to safely analyze the sigcheck of these malicious files!
-
-
-
-
-## Ip-Matcher.py
-
-This script can be used when you have a list of Pcap IPs and a list of known malicious IPs recorded on VirusTotal that you wish to compare each other to.
-
-##### Requirements:   Python 3.10
-
-##### Instructions:
-- You will need to download the list of IPs in your pcap by opening wireshark and going to Statistics > IPv4 Statistics > All Addresses. 
-  - Save as a .csv file called **'Pcap-Ips.csv'**, in the same directory as the script.
-- Once you have found a malicious file using VirusTotal, click the "Relations" tab and copy all IPs under the "Contacted URLs" or "Contacted IP Addresses" section by clicking "Export Identifiers". Paste them in an editor, then save as a .csv file called **'VT-Contacted-Ips.csv'** in the same directory.
-  - If there are many contacted IPs in VirusTotal, make sure you are clicking on the three dots at the bottom to show all IPs before copying them!
